@@ -4,13 +4,13 @@ steps:
   args:
     - build
     - -t
-    - asia-south1-docker.pkg.dev/$PROJECT_ID/app-repo/form-app:$COMMIT_SHA
+    - asia-south1-docker.pkg.dev/$PROJECT_ID/unnati-repo/form-app:$COMMIT_SHA
     - .
 
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - push
-    - asia-south1-docker.pkg.dev/$PROJECT_ID/app-repo/form-app:$COMMIT_SHA
+    - asia-south1-docker.pkg.dev/$PROJECT_ID/unnati-repo/form-app:$COMMIT_SHA
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
@@ -19,7 +19,7 @@ steps:
     - deploy
     - form-app
     - --image
-    - asia-south1-docker.pkg.dev/$PROJECT_ID/app-repo/form-app:$COMMIT_SHA
+    - asia-south1-docker.pkg.dev/$PROJECT_ID/unnati-repo/form-app:$COMMIT_SHA
     - --region
     - asia-south1
     - --platform
@@ -27,4 +27,4 @@ steps:
     - --allow-unauthenticated
 
 images:
-- asia-south1-docker.pkg.dev/$PROJECT_ID/app-repo/form-app:$COMMIT_SHA
+- asia-south1-docker.pkg.dev/$PROJECT_ID/unnati-repo/form-app:$COMMIT_SHA
